@@ -1,0 +1,3 @@
+[submodule "study-program"]
+	path = study-program
+	url = https://github.com/jwasham/coding-interview-university
