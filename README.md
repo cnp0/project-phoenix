@@ -9,11 +9,11 @@ The goal of this project is to reinforce a lot of the knowledge and skills I've 
 # Topics
 
 - [ ] Basics
-  - [ ] Variables
-  - [ ] Loops
+  - [x] Variables
+  - [x] Loops
   - [ ] Operators
   - [ ] Typing
-  - [ ] Methods/Functions
+  - [x] Methods/Functions
 
 - [ ] Intermediate 
   - [ ] Algorithmic complexity
