@@ -55,4 +55,4 @@ The goal of this project is to reinforce a lot of the knowledge and skills I've 
   - [ ] Endianness
   - [ ] Networking
 
-~TODO final section for problem solving~
+TODO final section for problem solving
