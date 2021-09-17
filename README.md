@@ -4,7 +4,7 @@ A self-study project using rust-lang. This project will roughly follow [this rep
 
 # About
 
-The goal of this project is to reinforce a lot of the knowledge and skills I've gained over the years with a refresh on the fundamentals/advanced topics for computer science and software engineering.
+Maintaining sharp :crossed_swords: and learning rust along the way. This is an open contribution to the self-learning community. Pull requests are welcome!
 
 # Topics
 
@@ -14,6 +14,7 @@ The goal of this project is to reinforce a lot of the knowledge and skills I've 
   - [ ] Operators
   - [ ] Typing
   - [x] Methods/Functions
+  - [x] Basic testing
 
 - [ ] Intermediate 
   - [ ] Algorithmic complexity
