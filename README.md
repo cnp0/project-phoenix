@@ -4,7 +4,7 @@ A self-study project using rust-lang. This project will roughly follow [this rep
 
 # About
 
-The goal of this project is to reinforce a lot of the knowledge and skills I've gained over the years with a refresh on the fundamentals of and some advanced topics for computer science.
+The goal of this project is to reinforce a lot of the knowledge and skills I've gained over the years with a refresh on the fundamentals/advanced topics for computer science and software engineering.
 
 # Topics
 
@@ -43,7 +43,7 @@ The goal of this project is to reinforce a lot of the knowledge and skills I've 
   - [ ] Dynamic programming
   - [ ] Design patterns
   - [ ] Combinatorics and probability
-  - [ ] NP, NP-complete, and approximnation algorithms
+  - [ ] NP, NP-complete, and approximation algorithms
   - [ ] Computer processing
   - [ ] Caches
   - [ ] Processes and threads
