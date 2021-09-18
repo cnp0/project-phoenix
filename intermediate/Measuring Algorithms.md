@@ -1,6 +1,6 @@
 # Measuring Algorithms
 
-Note that this is a simplification -- and to some an oversimplification -- of asymptoptic notation. See [this stackoverflow response](https://cs.stackexchange.com/a/61) for details on the depth of this topic.
+Note that this is a simplification -- and to some an oversimplification -- of asymptotic notation. See [this stackoverflow response](https://cs.stackexchange.com/a/61) for details on the depth of this topic.
 
 <hr>
 
