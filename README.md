@@ -1,6 +1,6 @@
 # project-phoenix
 
-A self-study project using rust-lang. This project will roughly follow [this repo](https://github.com/jwasham/coding-interview-university).
+A self-study project using rust-lang. This project will roughly follow [this repo](https://github.com/cnp0/coding-interview-university).
 
 # About
 
