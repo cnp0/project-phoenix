@@ -2,14 +2,14 @@
 #[allow(dead_code)]
 struct ExampleStruct {
     name: String,
-    id: u32
+    id: u32,
 }
 
 #[allow(dead_code)]
 enum ExampleEnum {
     One,
     Two,
-    Three
+    Three,
 }
 
 #[cfg(test)]
@@ -37,7 +37,7 @@ mod tests {
         let result = match thing {
             ExampleEnum::One => 1,
             ExampleEnum::Two => 2,
-            ExampleEnum::Three => 3
+            ExampleEnum::Three => 3,
         };
 
         assert_eq!(result, 1);

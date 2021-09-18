@@ -1,7 +1,7 @@
 #[allow(dead_code)]
 fn infinite_loop(target_num: u32) -> u32 {
     let mut count = 0;
-    
+
     loop {
         count += 1;
 
@@ -56,9 +56,12 @@ mod tests {
 
     #[test]
     fn test_iterator() {
-
         // where target is found
-        let strings = vec![String::from("first"), String::from("second"), String::from("third")];
+        let strings = vec![
+            String::from("first"),
+            String::from("second"),
+            String::from("third"),
+        ];
         let strings_clone = strings.clone();
 
         let successful_target = String::from("third");
@@ -67,10 +70,8 @@ mod tests {
         assert_eq!(successful_result, true);
 
         let unsuccessful_target = String::from("I am missing");
-        
+
         let unsuccessful_result: bool = iterator(strings_clone, unsuccessful_target);
         assert_eq!(unsuccessful_result, false);
-
-        
     }
 }

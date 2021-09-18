@@ -16,7 +16,7 @@ fn variables() {
 
     let mut mutable_array = [0, 0, 0];
     mutable_array[0] = 1;
- 
+
     let mut mutable_bool = true;
     println!("Mutable boolean: {}", mutable_bool);
 

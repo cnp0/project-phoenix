@@ -20,14 +20,15 @@ This work is also produced using my understanding of each topic at the time of c
   - [x] Methods/Functions
   - [x] Basic testing
   - [x] Basic CI
+  - [x] Basic tooling
+    - [x] Auto-format
+    - [x] Auto-lint
 
 - [ ] Intermediate 
   - [x] Measuring algorithms
-  - [ ] Tuples
-  - [ ] Arrays
-  - [ ] Vectors
-  - [ ] Pointers
+  - [ ] Arrays, tuples, and vectors
   - [ ] Linked lists
+  - [ ] Pointers
   - [ ] Stack
   - [ ] Queue
   - [ ] Hash table

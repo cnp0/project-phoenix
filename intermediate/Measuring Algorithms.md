@@ -70,7 +70,7 @@ data = half if target_letter in half
 This splitting search can be repeated until the target is found. This algorithm is classified as O(log(n)).
 
 
-## Ω (Omega)
+## Ω (Big-Omega)
 
 Opposite to Big-O, Ω is used to describe the best-case or lower-bound of an algorithm.
 
