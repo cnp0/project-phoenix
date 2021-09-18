@@ -1,11 +1,9 @@
 // example custom type
-#[allow(dead_code)]
 struct ExampleStruct {
     name: String,
     id: u32,
 }
 
-#[allow(dead_code)]
 enum ExampleEnum {
     One,
     Two,

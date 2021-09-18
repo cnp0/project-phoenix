@@ -1,4 +1,3 @@
-#[allow(dead_code)]
 fn operators() {
     let and_op = true && true;
     assert_eq!(and_op, true);

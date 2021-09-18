@@ -1,4 +1,3 @@
-#[allow(dead_code)]
 fn variables() {
     // example variables
     let mut mutable_string = "something".to_owned();

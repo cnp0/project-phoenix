@@ -1,4 +1,3 @@
-#[allow(dead_code)]
 fn infinite_loop(target_num: u32) -> u32 {
     let mut count = 0;
 
@@ -11,7 +10,6 @@ fn infinite_loop(target_num: u32) -> u32 {
     }
 }
 
-#[allow(dead_code)]
 fn finite_loop(target_num: u32) -> u32 {
     let mut count = 0;
 
@@ -23,7 +21,6 @@ fn finite_loop(target_num: u32) -> u32 {
     return count;
 }
 
-#[allow(dead_code)]
 fn iterator(strings: Vec<String>, target_string: String) -> bool {
     for string in strings.into_iter() {
         if string == target_string {
