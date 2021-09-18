@@ -8,13 +8,14 @@ Maintaining sharp :crossed_swords: and learning rust along the way. This is an o
 
 # Topics
 
-- [ ] Basics
+- [x] Basics
   - [x] Variables
   - [x] Loops
-  - [ ] Operators
-  - [ ] Typing
+  - [x] Operators
+  - [x] Basic typing
   - [x] Methods/Functions
   - [x] Basic testing
+  - [x] Basic CI
 
 - [ ] Intermediate 
   - [ ] Algorithmic complexity
