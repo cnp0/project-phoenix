@@ -70,7 +70,7 @@ data = half if target_letter in half
 This splitting search can be repeated until the target is found. This algorithm is classified as O(log(n)).
 
 
-# Ω (Omega)
+## Ω (Omega)
 
 Opposite to Big-O, Ω is used to describe the best-case or lower-bound of an algorithm.
 
@@ -86,9 +86,9 @@ data = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 Where the first position you happen to split on in order to search to the right or left of, you notice that it is the number you are searching for. In this scenario binary search is classified to run in Ω(1) time.
 
 
-# Θ (Theta)
+## Θ (Theta)
 
-Θ is used to classify an algorithm that has a Big-O and Ω of the same complexity. Note that Θ is often thought of as the *average-case*, but it depends on the context of how the classification is intended to be used or interpreted. 
+Θ is used to classify an algorithm that has a Big-O and Ω of the same complexity. Note that Θ is sometimes thought of as the *average-case*, but it depends on the context of how the classification is intended to be used or interpreted. 
 
 *Going back to the special alphabet example...*
 ```
