@@ -8,6 +8,8 @@ Maintaining sharp :crossed_swords: and learning rust along the way. This is an o
 
 # Topics
 
+Note: this list attempts to consolidate the `study-program`'s readme. Some topics might be merged or broken up over time.
+
 - [x] Basics
   - [x] Variables
   - [x] Loops
@@ -18,9 +20,7 @@ Maintaining sharp :crossed_swords: and learning rust along the way. This is an o
   - [x] Basic CI
 
 - [ ] Intermediate 
-  - [ ] Algorithmic complexity
-  - [ ] Big-O
-  - [ ] Asymptotic analysis
+  - [ ] Measuring algorithms
   - [ ] Tuples
   - [ ] Arrays
   - [ ] Vectors
