@@ -8,9 +8,9 @@ Maintaining sharp :crossed_swords: and learning rust along the way. This is an o
 
 # Topics
 
-Note: this list attempts to consolidate the `study-program`'s readme. Some topics might be merged or broken up over time. 
+**Note**: this list attempts to consolidate the `study-program`'s readme. Some topics might be merged or broken up over time. 
 
-This work is also produced using my understanding of each topic at the time of contributing the material. **If any of this information is incorrect, misleading, or incomplete, please feel free to submit a correction/suggestion in the form of an issue or a pull request.**
+**Disclaimer**: The contents of this project are produced using my understanding of each topic at the time of contributing the material. **If any of this information is incorrect, misleading, or incomplete, please feel free to submit a correction/suggestion in the form of an issue or a pull request.**
 
 - [x] Basics
   - [x] Variables
