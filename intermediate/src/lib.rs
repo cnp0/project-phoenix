@@ -6,3 +6,6 @@ pub mod arrays;
 
 #[allow(dead_code)]
 pub mod vectors;
+
+#[allow(dead_code)]
+pub mod references;

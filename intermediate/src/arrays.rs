@@ -7,6 +7,10 @@ const BOOL_ARRAY: [bool; 2] = [true, false];
 // multi-dimensional arrays are arrays af arrays
 const MULTI_DIM_ARRAY: [[i8; 4]; 4] = [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]];
 
+// intializing arrays with values and usize
+const LARGE_ARRAY_USIZE: usize = 1000;
+const LARGE_ARRAY: [u32; LARGE_ARRAY_USIZE] = [5; LARGE_ARRAY_USIZE];
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -20,5 +24,7 @@ mod tests {
 
         assert!(MULTI_DIM_ARRAY.len() > 0);
         assert!(MULTI_DIM_ARRAY[0].len() > 0);
+
+        assert_eq!(LARGE_ARRAY_USIZE, LARGE_ARRAY.len());
     }
 }

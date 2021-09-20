@@ -28,7 +28,7 @@ Maintaining sharp :crossed_swords: and learning rust along the way. This is an o
   - [x] Measuring algorithms
   - [ ] Arrays, tuples, and vectors
   - [ ] Linked lists
-  - [ ] Pointers
+  - [ ] References and pointers
   - [ ] Stack
   - [ ] Queue
   - [ ] Hash table
