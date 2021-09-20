@@ -1,3 +1,4 @@
+// references
 const EXAMPLE_INT: u32 = 300;
 const EXAMPLE_REF: &u32 = &EXAMPLE_INT;
 

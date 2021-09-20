@@ -8,4 +8,4 @@ pub mod arrays;
 pub mod vectors;
 
 #[allow(dead_code)]
-pub mod references;
+pub mod pointers;
