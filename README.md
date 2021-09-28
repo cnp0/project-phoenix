@@ -26,7 +26,7 @@ Maintaining sharp :crossed_swords: and learning rust along the way. This is an o
 
 - [ ] Intermediate 
   - [x] Measuring algorithms
-  - [ ] Arrays, tuples, and vectors
+  - [x] Arrays, tuples, and vectors
   - [ ] Linked lists
   - [ ] Pointers
   - [ ] Stack

@@ -9,3 +9,6 @@ pub mod vectors;
 
 #[allow(dead_code)]
 pub mod pointers;
+
+#[allow(dead_code)]
+pub mod tuples;
