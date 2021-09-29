@@ -24,11 +24,11 @@ Maintaining sharp :crossed_swords: and learning rust along the way. This is an o
     - [x] Auto-format
     - [x] Auto-lint
 
-- [ ] Intermediate 
-  - [x] Measuring algorithms
-  - [x] Arrays, tuples, and vectors
-  - [ ] Linked lists
-  - [ ] Pointers
+- [ ] Intermediate - Phase 1: Topic review, fundamental rust, `std`, `crates.io`, etc.
+  - [x] Measuring algorithms (`.md`)
+  - [x] Arrays (`[]`), tuples (`()`), and `Vec`
+  - [x] `LinkedList`
+  - [x] Pointers (`&`, `*`)
   - [ ] Stack
   - [ ] Queue
   - [ ] Hash table
@@ -59,5 +59,5 @@ Maintaining sharp :crossed_swords: and learning rust along the way. This is an o
   - [ ] Unicode
   - [ ] Endianness
   - [ ] Networking
-
-TODO final section for problem solving
+- [ ] Intermediate - Phase 2: From scratch or build up (implement your own from Phase 1 or add to the fundamentals)
+- [ ] Intermediate - Phase 3: Application (Problem solving and real world application)

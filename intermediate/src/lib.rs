@@ -12,3 +12,6 @@ pub mod pointers;
 
 #[allow(dead_code)]
 pub mod tuples;
+
+#[allow(dead_code)]
+pub mod lists;
