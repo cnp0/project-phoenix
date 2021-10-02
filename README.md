@@ -29,13 +29,13 @@ Maintaining sharp :crossed_swords: and learning rust along the way. This is an o
   - [x] Arrays (`[]`), tuples (`()`), and `Vec`
   - [x] `LinkedList`
   - [x] Pointers (`&`, `*`)
-  - [ ] Stack
+  - [x] Stack
   - [ ] Queue
   - [ ] Hash table
   - [ ] Binary search
   - [ ] Bitwise operations
   - [ ] Trees
-  - [ ] Heap
+  - [x] `Box`
   - [ ] Mergesort
   - [ ] Quicksort
   - [ ] Bubble sort

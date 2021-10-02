@@ -15,3 +15,9 @@ pub mod tuples;
 
 #[allow(dead_code)]
 pub mod lists;
+
+#[allow(dead_code)]
+pub mod stack;
+
+#[allow(dead_code)]
+pub mod heap;
