@@ -24,3 +24,6 @@ pub mod heap;
 
 #[allow(dead_code)]
 pub mod queue;
+
+#[allow(dead_code)]
+pub mod hash_tables;

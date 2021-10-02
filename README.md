@@ -30,8 +30,8 @@ Maintaining sharp :crossed_swords: and learning rust along the way. This is an o
   - [x] `LinkedList`
   - [x] Pointers (`&`, `*`)
   - [x] Stack
-  - [ ] Queue (`ringbuf`, ...)
-  - [ ] Hash table
+  - [ ] Queue (`ringbuf`, Buffer, Circular Buffer, etc.)
+  - [ ] `HashMap`
   - [ ] Binary search
   - [ ] Bitwise operations
   - [ ] Trees

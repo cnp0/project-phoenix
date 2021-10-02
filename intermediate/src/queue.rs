@@ -1,3 +1,7 @@
+// TODO:
+//      - [ ] implement a circular buffer
+//      - [ ] implement a buffer
+//      - [x] implement a queue
 use ringbuf::RingBuffer;
 
 const RING_BUF_SIZE: usize = 2;
