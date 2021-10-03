@@ -56,7 +56,7 @@ impl<T> CircularBuffer<T> {
         if len == self.queue.capacity() {
             self.queue.rotate_right(1);
 
-            std::mem::replace(&mut self.queue[0], item);
+            self.queue[0] = item;
         } else {
             self.queue.push(item);
         }
@@ -91,7 +91,10 @@ mod tests {
         circular_queue.enqueue(4);
         circular_queue.enqueue(5);
 
+        // [5, 1, 2, 3]
+
         assert_eq!(circular_queue.length(), 4);
+        assert_eq!(circular_queue.queue[0], 5);
     }
 
     #[test]
