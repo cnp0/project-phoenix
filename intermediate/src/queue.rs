@@ -4,39 +4,57 @@
 //      - [x] implement a queue
 use ringbuf::RingBuffer;
 
-const RING_BUF_SIZE: usize = 2;
-
+// simple queue with enqueue, dequeue, etc.
 struct Queue<T> {
     queue: Vec<T>,
 }
 
+struct Buffer<T> {
+    queue: Vec<T>,
+}
+
+// simple circular queue with rotating enqueue management and with capacity
+struct CircularBuffer<T> {
+    queue: Vec<T>,
+}
+
 impl<T> Queue<T> {
+    // create queue using vector with no explicit capacity
     fn new() -> Self {
         Queue { queue: Vec::new() }
     }
 
+    // get length of queue
     fn length(&self) -> usize {
         self.queue.len()
     }
 
+    // add to queue
     fn enqueue(&mut self, item: T) {
         self.queue.push(item)
     }
 
+    // remove from queue
     fn dequeue(&mut self) -> T {
         self.queue.remove(0)
     }
+
     fn is_empty(&self) -> bool {
         self.queue.is_empty()
     }
 
+    // get first element of queue
     fn peek(&self) -> Option<&T> {
         self.queue.first()
     }
 }
 
-struct CircularBuffer<T> {
-    queue: Vec<T>,
+impl<T> Buffer<T> {
+    fn new() {}
+
+    fn enqueue(&self) {}
+
+    fn dequeue(&self) {}
 }
 
 impl<T> CircularBuffer<T> {
@@ -50,21 +68,61 @@ impl<T> CircularBuffer<T> {
         self.queue.len()
     }
 
-    fn enqueue(&mut self, item: T) {
-        let len = self.length();
+    fn is_empty(&self) -> bool {
+        self.queue.is_empty()
+    }
 
-        if len == self.queue.capacity() {
+    fn is_at_capacity(&self) -> bool {
+        if self.is_empty() {
+            return false;
+        }
+
+        if self.length() == self.queue.capacity() {
+            return true;
+        }
+
+        false
+    }
+
+    // rotate and return an if rotated bool
+    fn rotate_and_succeed(&mut self) -> bool {
+        if self.is_at_capacity() {
             self.queue.rotate_right(1);
 
-            self.queue[0] = item;
-        } else {
-            self.queue.push(item);
+            return true;
         }
+
+        false
+    }
+
+    // add to queue
+    fn enqueue(&mut self, item: T) {
+        let rotated = self.rotate_and_succeed();
+
+        if !rotated {
+            self.queue.push(item);
+
+            return;
+        }
+
+        self.queue[0] = item;
+    }
+
+    // fifo remove from queue
+    fn dequeue(&mut self) -> T {
+        let rotated = self.rotate_and_succeed();
+
+        if rotated {
+            return self.queue.remove(0);
+        }
+
+        self.queue.remove(self.length() - 1)
     }
 }
 
-fn create_ringbuf_queue() -> RingBuffer<i32> {
-    return RingBuffer::<i32>::new(RING_BUF_SIZE);
+// use ringbuf for circular queue
+fn create_ringbuf_queue(size: usize) -> RingBuffer<isize> {
+    return RingBuffer::<isize>::new(size);
 }
 
 #[cfg(test)]
@@ -82,7 +140,10 @@ mod tests {
 
         assert_eq!(item, 1);
         assert_eq!(queue.is_empty(), false);
+    }
 
+    #[test]
+    fn test_circular_queue() {
         let mut circular_queue: CircularBuffer<isize> = CircularBuffer::new(4);
 
         circular_queue.enqueue(1);
@@ -95,11 +156,18 @@ mod tests {
 
         assert_eq!(circular_queue.length(), 4);
         assert_eq!(circular_queue.queue[0], 5);
+
+        let item = circular_queue.dequeue();
+
+        // [3, 5, 1, 2]
+        //  ^
+
+        assert_eq!(item, 3);
     }
 
     #[test]
     fn test_ringbuf_queue() {
-        let queue = create_ringbuf_queue();
+        let queue = create_ringbuf_queue(2);
 
         let (mut prod, mut cons) = queue.split();
 
