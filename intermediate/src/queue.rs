@@ -35,6 +35,34 @@ impl<T> Queue<T> {
     }
 }
 
+struct CircularBuffer<T> {
+    queue: Vec<T>,
+}
+
+impl<T> CircularBuffer<T> {
+    fn new(size: usize) -> Self {
+        CircularBuffer {
+            queue: Vec::with_capacity(size),
+        }
+    }
+
+    fn length(&self) -> usize {
+        self.queue.len()
+    }
+
+    fn enqueue(&mut self, item: T) {
+        let len = self.length();
+
+        if len == self.queue.capacity() {
+            self.queue.rotate_right(1);
+
+            std::mem::replace(&mut self.queue[0], item);
+        } else {
+            self.queue.push(item);
+        }
+    }
+}
+
 fn create_ringbuf_queue() -> RingBuffer<i32> {
     return RingBuffer::<i32>::new(RING_BUF_SIZE);
 }
@@ -53,7 +81,17 @@ mod tests {
         let item = queue.dequeue();
 
         assert_eq!(item, 1);
-        assert_eq!(queue.is_empty(), false)
+        assert_eq!(queue.is_empty(), false);
+
+        let mut circular_queue: CircularBuffer<isize> = CircularBuffer::new(4);
+
+        circular_queue.enqueue(1);
+        circular_queue.enqueue(2);
+        circular_queue.enqueue(3);
+        circular_queue.enqueue(4);
+        circular_queue.enqueue(5);
+
+        assert_eq!(circular_queue.length(), 4);
     }
 
     #[test]
