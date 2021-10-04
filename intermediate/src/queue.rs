@@ -1,8 +1,8 @@
-// TODO:
-//      - [ ] implement a circular buffer
-//      - [ ] implement a buffer
-//      - [x] implement a queue
+// TODO: look into performance of enqueue direction; try immutable solution
 use ringbuf::RingBuffer;
+
+const TEST_CAPACITY: usize = 6;
+const TEST_ITEMS_TO_QUEUE: [u8; TEST_CAPACITY] = [0, 1, 2, 3, 4, 5];
 
 // simple queue with enqueue, dequeue, etc.
 struct Queue<T> {
@@ -50,11 +50,31 @@ impl<T> Queue<T> {
 }
 
 impl<T> Buffer<T> {
-    fn new() {}
+    fn new(size: usize) -> Self {
+        Buffer {
+            queue: Vec::with_capacity(size),
+        }
+    }
 
-    fn enqueue(&self) {}
+    fn length(&self) -> usize {
+        self.queue.len()
+    }
 
-    fn dequeue(&self) {}
+    fn is_empty(&self) -> bool {
+        self.queue.is_empty()
+    }
+
+    fn enqueue(&mut self, item: T) {
+        if self.length() < self.queue.capacity() {
+            self.queue.push(item);
+        }
+
+        println!("Item was not added to the queue!")
+    }
+
+    fn dequeue(&mut self) -> T {
+        self.queue.remove(0)
+    }
 }
 
 impl<T> CircularBuffer<T> {
@@ -73,10 +93,6 @@ impl<T> CircularBuffer<T> {
     }
 
     fn is_at_capacity(&self) -> bool {
-        if self.is_empty() {
-            return false;
-        }
-
         if self.length() == self.queue.capacity() {
             return true;
         }
@@ -84,39 +100,30 @@ impl<T> CircularBuffer<T> {
         false
     }
 
-    // rotate and return an if rotated bool
-    fn rotate_and_succeed(&mut self) -> bool {
+    // rotate left
+    fn rotate(&mut self) {
         if self.is_at_capacity() {
-            self.queue.rotate_right(1);
-
-            return true;
+            self.queue.rotate_left(1);
         }
-
-        false
     }
 
     // add to queue
     fn enqueue(&mut self, item: T) {
-        let rotated = self.rotate_and_succeed();
+        self.rotate();
 
-        if !rotated {
-            self.queue.push(item);
+        if self.is_at_capacity() {
+            let len = self.length();
+            self.queue[len - 1] = item;
 
             return;
         }
 
-        self.queue[0] = item;
+        self.queue.push(item);
     }
 
     // fifo remove from queue
     fn dequeue(&mut self) -> T {
-        let rotated = self.rotate_and_succeed();
-
-        if rotated {
-            return self.queue.remove(0);
-        }
-
-        self.queue.remove(self.length() - 1)
+        self.queue.remove(0)
     }
 }
 
@@ -131,38 +138,58 @@ mod tests {
 
     #[test]
     fn test_queue() {
-        let mut queue: Queue<isize> = Queue::new();
+        let mut queue: Queue<u8> = Queue::new();
 
-        queue.enqueue(1);
-        queue.enqueue(2);
+        for item in TEST_ITEMS_TO_QUEUE.iter() {
+            queue.enqueue(*item);
+        }
 
         let item = queue.dequeue();
 
-        assert_eq!(item, 1);
+        assert_eq!(item, TEST_ITEMS_TO_QUEUE[0]);
         assert_eq!(queue.is_empty(), false);
     }
 
     #[test]
+    fn test_buffer_queue() {
+        let mut buffer = Buffer::new(TEST_CAPACITY);
+
+        for item in TEST_ITEMS_TO_QUEUE.iter() {
+            buffer.enqueue(*item);
+        }
+
+        buffer.enqueue(6);
+
+        assert_eq!(buffer.length(), TEST_CAPACITY);
+
+        let item = buffer.dequeue();
+
+        assert_eq!(item, TEST_ITEMS_TO_QUEUE[0]);
+    }
+
+    #[test]
     fn test_circular_queue() {
-        let mut circular_queue: CircularBuffer<isize> = CircularBuffer::new(4);
+        let mut circular_queue: CircularBuffer<u8> = CircularBuffer::new(TEST_CAPACITY);
+        let new_item = 6;
 
-        circular_queue.enqueue(1);
-        circular_queue.enqueue(2);
-        circular_queue.enqueue(3);
-        circular_queue.enqueue(4);
-        circular_queue.enqueue(5);
+        // [0, 1, 2, 3, 4, 5]
 
-        // [5, 1, 2, 3]
+        for item in TEST_ITEMS_TO_QUEUE.iter() {
+            circular_queue.enqueue(*item);
+        }
 
-        assert_eq!(circular_queue.length(), 4);
-        assert_eq!(circular_queue.queue[0], 5);
+        circular_queue.enqueue(new_item);
+
+        assert_eq!(circular_queue.length(), TEST_CAPACITY);
+        assert_eq!(circular_queue.queue[0], TEST_ITEMS_TO_QUEUE[1]);
 
         let item = circular_queue.dequeue();
 
-        // [3, 5, 1, 2]
+        // [0, 1, 2, 3, 4, 5]
+        // [1, 2, 3, 4, 5, new_item]
         //  ^
 
-        assert_eq!(item, 3);
+        assert_eq!(item, TEST_ITEMS_TO_QUEUE[1]);
     }
 
     #[test]
