@@ -16,6 +16,8 @@ struct Buffer<T> {
 // simple circular queue with rotating enqueue management and with capacity
 struct CircularBuffer<T> {
     queue: Vec<T>,
+    // position to either dequeue or enqueue
+    focus: usize,
 }
 
 impl<T> Queue<T> {
@@ -67,6 +69,8 @@ impl<T> Buffer<T> {
     fn enqueue(&mut self, item: T) {
         if self.length() < self.queue.capacity() {
             self.queue.push(item);
+
+            return;
         }
 
         println!("Item was not added to the queue!")
@@ -81,6 +85,7 @@ impl<T> CircularBuffer<T> {
     fn new(size: usize) -> Self {
         CircularBuffer {
             queue: Vec::with_capacity(size),
+            focus: 0,
         }
     }
 
@@ -100,20 +105,34 @@ impl<T> CircularBuffer<T> {
         false
     }
 
-    // rotate left
+    // rotate focus one index position in fifo-compatible direction
     fn rotate(&mut self) {
-        if self.is_at_capacity() {
-            self.queue.rotate_left(1);
+        if self.is_empty() {
+            return;
         }
+
+        if self.focus == self.queue.capacity() - 1 {
+            self.focus = 0;
+            return;
+        }
+
+        self.focus += 1;
+    }
+
+    // performed to move focus back 1 position in queue
+    fn undo_rotate(&mut self) {
+        if self.focus > 0 {
+            self.focus = self.focus - 1;
+        }
+
+        self.focus = self.length() - 1;
     }
 
     // add to queue
     fn enqueue(&mut self, item: T) {
-        self.rotate();
-
         if self.is_at_capacity() {
-            let len = self.length();
-            self.queue[len - 1] = item;
+            self.queue[self.focus] = item;
+            self.rotate();
 
             return;
         }
@@ -121,9 +140,12 @@ impl<T> CircularBuffer<T> {
         self.queue.push(item);
     }
 
-    // fifo remove from queue
+    // fifo remove from queue; rotates focus opposite
     fn dequeue(&mut self) -> T {
-        self.queue.remove(0)
+        let item = self.queue.remove(self.focus);
+        self.undo_rotate();
+
+        item
     }
 }
 
@@ -181,7 +203,7 @@ mod tests {
         circular_queue.enqueue(new_item);
 
         assert_eq!(circular_queue.length(), TEST_CAPACITY);
-        assert_eq!(circular_queue.queue[0], TEST_ITEMS_TO_QUEUE[1]);
+        assert_eq!(circular_queue.queue[0], new_item);
 
         let item = circular_queue.dequeue();
 
