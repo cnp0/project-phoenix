@@ -16,7 +16,7 @@ fn binary_search(array: &[u8; 10], target: &u8) -> Option<usize> {
             high = middle;
         } else if *target > array[middle] {
             low = middle + 1;
-        } else if *target == array[middle] {
+        } else {
             return Some(middle);
         }
     }
