@@ -27,3 +27,6 @@ pub mod queue;
 
 #[allow(dead_code)]
 pub mod hash_tables;
+
+#[allow(dead_code)]
+pub mod binary_search;

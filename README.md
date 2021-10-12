@@ -24,15 +24,15 @@ Maintaining sharp :crossed_swords: and learning rust along the way. This is an o
     - [x] Auto-format
     - [x] Auto-lint
 
-- [ ] Intermediate - Phase 1: Topic review, fundamental rust, `std`, `crates.io`, etc.
+- Intermediate - Phase 1: Topic review, fundamental rust, `std`, `crates.io`, etc.
   - [x] Measuring algorithms (`.md`)
   - [x] Arrays (`[]`), tuples (`()`), and `Vec`
   - [x] `LinkedList`
   - [x] Pointers (`&`, `*`)
   - [x] Stack
-  - [ ] Queue (`ringbuf`, Buffer, Circular Buffer, etc.)
-  - [ ] `HashMap`
-  - [ ] Binary search
+  - [x] Queue (`ringbuf`, Buffer, Circular Buffer variant, etc.)
+  - [x] `HashMap`
+  - [x] Binary search
   - [ ] Bitwise operations
   - [ ] Trees
   - [x] `Box`
