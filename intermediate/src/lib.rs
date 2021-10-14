@@ -30,3 +30,6 @@ pub mod hash_tables;
 
 #[allow(dead_code)]
 pub mod binary_search;
+
+#[allow(dead_code)]
+pub mod bitwise_ops;

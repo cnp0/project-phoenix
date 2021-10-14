@@ -33,7 +33,7 @@ Maintaining sharp :crossed_swords: and learning rust along the way. This is an o
   - [x] Queue (`ringbuf`, Buffer, Circular Buffer variant, etc.)
   - [x] `HashMap`
   - [x] Binary search
-  - [ ] Bitwise operations
+  - [x] Bitwise operations
   - [ ] Trees
   - [x] `Box`
   - [ ] Mergesort
