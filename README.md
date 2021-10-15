@@ -34,7 +34,7 @@ Maintaining sharp :crossed_swords: and learning rust along the way. This is an o
   - [x] `HashMap`
   - [x] Binary search
   - [x] Bitwise operations
-  - [ ] Trees
+  - [x] Trees
   - [x] `Box`
   - [ ] Mergesort
   - [ ] Quicksort

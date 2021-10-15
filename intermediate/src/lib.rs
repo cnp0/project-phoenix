@@ -33,3 +33,6 @@ pub mod binary_search;
 
 #[allow(dead_code)]
 pub mod bitwise_ops;
+
+#[allow(dead_code)]
+pub mod tree;
