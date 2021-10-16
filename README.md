@@ -39,7 +39,7 @@ Maintaining sharp :crossed_swords: and learning rust along the way. This is an o
   - [x] Mergesort
   - [x] Quicksort
   - [x] Bubble sort
-  - [ ] Insertion sort
+  - [x] Insertion sort
   - [ ] Selection sort
   - [ ] Radix sort
   - [ ] Freivalds' algorithm

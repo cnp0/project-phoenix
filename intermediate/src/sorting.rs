@@ -1,3 +1,7 @@
+// most from https://github.com/TheAlgorithms/Rust/blob/master/src/sorting
+// TODO: implement immutable versions
+use std::cmp;
+
 fn merge<T: Ord + Copy>(vec: &mut Vec<T>, low: usize, middle: usize, high: usize) -> &Vec<T> {
     let mut left_half = Vec::new();
     let mut right_half = Vec::new();
@@ -128,6 +132,25 @@ pub fn bubble_sort<T: Ord>(vec: &mut Vec<T>) -> &Vec<T> {
     return vec;
 }
 
+pub fn insertion_sort<T: cmp::PartialEq + cmp::PartialOrd + Clone>(vec: &Vec<T>) -> Vec<T> {
+    let mut result = Vec::with_capacity(vec.len());
+
+    for ele in vec.iter().cloned() {
+        let n_inserted = result.len();
+
+        // iterate over "up-to" n_inserted
+        for i in 0..=n_inserted {
+            if i == n_inserted || result[i] > ele {
+                // insert and move others higher
+                result.insert(i, ele);
+                break;
+            }
+        }
+    }
+
+    return result;
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -150,5 +173,8 @@ mod tests {
 
         let bubble_sort_result = bubble_sort(&mut unsorted_vec);
         assert_eq!(*bubble_sort_result, sorted_vec);
+
+        let insertion_sort_result = insertion_sort(&unsorted_vec);
+        assert_eq!(insertion_sort_result, sorted_vec);
     }
 }
