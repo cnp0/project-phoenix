@@ -116,6 +116,18 @@ pub fn quick_sort<T: Ord>(vec: &mut Vec<T>) {
     inner_quick_sort(vec, 0, (len - 1) as isize);
 }
 
+pub fn bubble_sort<T: Ord>(vec: &mut Vec<T>) -> &Vec<T> {
+    for i in 0..vec.len() {
+        for j in 0..vec.len() - 1 - i {
+            if vec[j] > vec[j + 1] {
+                vec.swap(j, j + 1);
+            }
+        }
+    }
+
+    return vec;
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -135,5 +147,8 @@ mod tests {
 
         quick_sort(&mut quick_merge_sortable);
         assert_eq!(quick_merge_sortable, sorted_vec);
+
+        let bubble_sort_result = bubble_sort(&mut unsorted_vec);
+        assert_eq!(*bubble_sort_result, sorted_vec);
     }
 }
