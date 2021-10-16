@@ -36,3 +36,6 @@ pub mod bitwise_ops;
 
 #[allow(dead_code)]
 pub mod tree;
+
+#[allow(dead_code)]
+pub mod sorting;
