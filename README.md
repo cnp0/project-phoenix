@@ -41,7 +41,7 @@ Maintaining sharp :crossed_swords: and learning rust along the way. This is an o
   - [x] Bubble sort
   - [x] Insertion sort
   - [x] Selection sort
-  - [ ] Radix sort
+  - [x] Radix sort
   - [ ] Freivalds' algorithm
   - [ ] Graphs
   - [ ] Recursion
@@ -59,5 +59,4 @@ Maintaining sharp :crossed_swords: and learning rust along the way. This is an o
   - [ ] Unicode
   - [ ] Endianness
   - [ ] Networking
-- [ ] Intermediate - Phase 2: From scratch or build up (implement your own from Phase 1 or add to the fundamentals)
-- [ ] Intermediate - Phase 3: Application (Problem solving and real world application)
+  - [ ] Refactor `project-phoenix`

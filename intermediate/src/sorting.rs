@@ -1,5 +1,9 @@
-// most from https://github.com/TheAlgorithms/Rust/blob/master/src/sorting
-// TODO: implement immutable versions
+// Sorting implementations
+//   1. Without resources, attempt to implement
+//   2. When stuck syntactically, disect and follow
+//      https://github.com/TheAlgorithms/Rust/blob/master/src/sorting
+//   3. Review study-program material
+//   4. TODO: implement immutable versions
 use std::cmp;
 
 fn merge<T: Ord + Copy>(vec: &mut Vec<T>, low: usize, middle: usize, high: usize) -> &Vec<T> {
@@ -167,6 +171,40 @@ pub fn selection_sort<T: Ord>(vec: &mut Vec<T>) {
     }
 }
 
+pub fn radix_sort(vec: &mut Vec<u8>) {
+    let max_ele = match vec.iter().max() {
+        Some(&x) => x as usize,
+        None => return,
+    };
+
+    let radix = vec.len().next_power_of_two();
+
+    // start at LSD
+    let mut place = 1;
+    while place <= max_ele {
+        let digit_of = |x| x as usize / place % radix;
+
+        // count digit occurances
+        let mut counter = vec![0; radix];
+        for &x in vec.iter() {
+            counter[digit_of(x)] += 1;
+        }
+
+        // compute last index of each digit
+        for i in 1..radix {
+            counter[i] += counter[i - 1];
+        }
+
+        // write elements to their new indices
+        for &x in vec.to_owned().iter().rev() {
+            counter[digit_of(x)] -= 1;
+            vec[counter[digit_of(x)]] = x;
+        }
+
+        place *= radix;
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -179,11 +217,9 @@ mod tests {
         let sorted_vec = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
         let merge_sort_result = merge_sort(&mut unsorted_vec);
-
         assert_eq!(*merge_sort_result, sorted_vec);
 
         let mut quick_sort_sortable = unsorted_vec.to_vec();
-
         quick_sort(&mut quick_sort_sortable);
         assert_eq!(quick_sort_sortable, sorted_vec);
 
@@ -194,8 +230,11 @@ mod tests {
         assert_eq!(insertion_sort_result, sorted_vec);
 
         let mut selection_sort_sortable = unsorted_vec.to_vec();
-
         selection_sort(&mut selection_sort_sortable);
         assert_eq!(selection_sort_sortable, sorted_vec);
+
+        let mut radix_sort_sortable = unsorted_vec.to_vec();
+        radix_sort(&mut radix_sort_sortable);
+        assert_eq!(radix_sort_sortable, sorted_vec);
     }
 }
