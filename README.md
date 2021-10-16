@@ -37,7 +37,7 @@ Maintaining sharp :crossed_swords: and learning rust along the way. This is an o
   - [x] Trees
   - [x] `Box`
   - [x] Mergesort
-  - [ ] Quicksort
+  - [x] Quicksort
   - [ ] Bubble sort
   - [ ] Insertion sort
   - [ ] Selection sort

@@ -1,4 +1,4 @@
-fn _merge<T: Ord + Copy>(vec: &mut Vec<T>, low: usize, middle: usize, high: usize) -> &Vec<T> {
+fn merge<T: Ord + Copy>(vec: &mut Vec<T>, low: usize, middle: usize, high: usize) -> &Vec<T> {
     let mut left_half = Vec::new();
     let mut right_half = Vec::new();
 
@@ -45,41 +45,95 @@ fn _merge<T: Ord + Copy>(vec: &mut Vec<T>, low: usize, middle: usize, high: usiz
     return vec;
 }
 
-fn _merge_sort<T: Ord + Copy>(vec: &mut Vec<T>, low: usize, high: usize) -> &Vec<T> {
+fn inner_merge_sort<T: Ord + Copy>(vec: &mut Vec<T>, low: usize, high: usize) -> &Vec<T> {
     if low >= high {
         return vec;
     }
 
     let middle = low + (high - low) / 2;
 
-    _merge_sort(vec, low, middle);
-    _merge_sort(vec, middle + 1, high);
+    inner_merge_sort(vec, low, middle);
+    inner_merge_sort(vec, middle + 1, high);
 
-    let new_vec = _merge(vec, low, middle, high);
+    let new_vec = merge(vec, low, middle, high);
 
     return new_vec;
 }
 
-fn merge_sort<T: Ord + Copy>(vec: &mut Vec<T>) -> &Vec<T> {
+pub fn merge_sort<T: Ord + Copy>(vec: &mut Vec<T>) -> &Vec<T> {
     let len = vec.len();
     if len <= 1 {
         return vec;
     }
 
-    let new_vec = _merge_sort(vec, 0, len - 1);
+    let new_vec = inner_merge_sort(vec, 0, len - 1);
 
     return new_vec;
+}
+
+fn partition<T: Ord>(vec: &mut Vec<T>, low: isize, high: isize) -> isize {
+    let pivot = high;
+    let mut i = low - 1;
+    let mut j = high;
+
+    loop {
+        i += 1;
+        while vec[i as usize] < vec[pivot as usize] {
+            i += 1;
+        }
+
+        j -= 1;
+        while j >= 0 && vec[j as usize] > vec[pivot as usize] {
+            j -= 1;
+        }
+
+        if i >= j {
+            break;
+        } else {
+            vec.swap(i as usize, j as usize);
+        }
+    }
+
+    vec.swap(i as usize, pivot as usize);
+
+    return i;
+}
+
+fn inner_quick_sort<T: Ord>(vec: &mut Vec<T>, low: isize, high: isize) {
+    if low >= high {
+        return;
+    }
+
+    let p_i = partition(vec, low, high);
+
+    inner_quick_sort(vec, low, p_i - 1);
+    inner_quick_sort(vec, p_i + 1, high);
+}
+
+pub fn quick_sort<T: Ord>(vec: &mut Vec<T>) {
+    let len = vec.len();
+
+    inner_quick_sort(vec, 0, (len - 1) as isize);
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
-    #[test]
-    fn test_merge_sort() {
-        let mut vec = vec![10, 1, 2, 3, 4, 6, 5, 9, 8, 7];
-        let result = merge_sort(&mut vec);
+    const TEST_ARRAY: [u8; 10] = [10, 1, 2, 3, 4, 6, 5, 9, 8, 7];
 
-        assert_eq!(*result, vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    #[test]
+    fn test_sorting() {
+        let mut unsorted_vec = Vec::from(TEST_ARRAY);
+        let sorted_vec = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        let merge_sort_result = merge_sort(&mut unsorted_vec);
+
+        assert_eq!(*merge_sort_result, sorted_vec);
+
+        let mut quick_merge_sortable = unsorted_vec.to_vec();
+
+        quick_sort(&mut quick_merge_sortable);
+        assert_eq!(quick_merge_sortable, sorted_vec);
     }
 }
