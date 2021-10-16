@@ -151,6 +151,22 @@ pub fn insertion_sort<T: cmp::PartialEq + cmp::PartialOrd + Clone>(vec: &Vec<T>)
     return result;
 }
 
+pub fn selection_sort<T: Ord>(vec: &mut Vec<T>) {
+    let len = vec.len();
+
+    for i in 0..len {
+        let mut min_i = i;
+
+        for j in (i + 1)..len {
+            if vec[j] < vec[min_i] {
+                min_i = j;
+            }
+        }
+
+        vec.swap(min_i, i);
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -166,15 +182,20 @@ mod tests {
 
         assert_eq!(*merge_sort_result, sorted_vec);
 
-        let mut quick_merge_sortable = unsorted_vec.to_vec();
+        let mut quick_sort_sortable = unsorted_vec.to_vec();
 
-        quick_sort(&mut quick_merge_sortable);
-        assert_eq!(quick_merge_sortable, sorted_vec);
+        quick_sort(&mut quick_sort_sortable);
+        assert_eq!(quick_sort_sortable, sorted_vec);
 
         let bubble_sort_result = bubble_sort(&mut unsorted_vec);
         assert_eq!(*bubble_sort_result, sorted_vec);
 
         let insertion_sort_result = insertion_sort(&unsorted_vec);
         assert_eq!(insertion_sort_result, sorted_vec);
+
+        let mut selection_sort_sortable = unsorted_vec.to_vec();
+
+        selection_sort(&mut selection_sort_sortable);
+        assert_eq!(selection_sort_sortable, sorted_vec);
     }
 }
