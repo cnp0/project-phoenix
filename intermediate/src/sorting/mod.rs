@@ -16,7 +16,7 @@ mod selection_sort;
 mod tests {
     use super::*;
     use bubble_sort::bubble_sort;
-    // use heap_sort::heap_sort;
+    use heap_sort::heap_sort;
     use insertion_sort::insertion_sort;
     use merge_sort::merge_sort;
     use quick_sort::quick_sort;
@@ -33,7 +33,7 @@ mod tests {
         let merge_sort_result = merge_sort(&mut unsorted_vec);
         assert_eq!(*merge_sort_result, sorted_vec);
 
-        let mut quick_sort_sortable = unsorted_vec.to_vec();
+        let mut quick_sort_sortable = unsorted_vec.clone();
         quick_sort(&mut quick_sort_sortable);
         assert_eq!(quick_sort_sortable, sorted_vec);
 
@@ -43,12 +43,16 @@ mod tests {
         let insertion_sort_result = insertion_sort(&unsorted_vec);
         assert_eq!(insertion_sort_result, sorted_vec);
 
-        let mut selection_sort_sortable = unsorted_vec.to_vec();
+        let mut selection_sort_sortable = unsorted_vec.clone();
         selection_sort(&mut selection_sort_sortable);
         assert_eq!(selection_sort_sortable, sorted_vec);
 
-        let mut radix_sort_sortable = unsorted_vec.to_vec();
+        let mut radix_sort_sortable = unsorted_vec.clone();
         radix_sort(&mut radix_sort_sortable);
         assert_eq!(radix_sort_sortable, sorted_vec);
+
+        let mut heap_sort_sortable = unsorted_vec.clone();
+        heap_sort(&mut heap_sort_sortable);
+        assert_eq!(heap_sort_sortable, sorted_vec);
     }
 }

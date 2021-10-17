@@ -42,8 +42,7 @@ Maintaining sharp :crossed_swords: and learning rust along the way. This is an o
   - [x] Insertion sort
   - [x] Selection sort
   - [x] Radix sort
-  - [ ] Heapsort
-  - [ ] Freivalds' algorithm
+  - [x] Heapsort
   - [ ] Graphs
   - [ ] Recursion
   - [ ] Dynamic programming
@@ -60,4 +59,5 @@ Maintaining sharp :crossed_swords: and learning rust along the way. This is an o
   - [ ] Unicode
   - [ ] Endianness
   - [ ] Networking
+  - [ ] Freivalds' algorithm
   - [ ] Refactor `project-phoenix`
