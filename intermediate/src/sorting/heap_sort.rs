@@ -1,13 +1,20 @@
-// TODO: write to use vectors (didn't debug)
+// TODO:
+//   - write to use vectors (didn't debug)
+//   - use an actual heap structure
 fn move_down<T: Ord>(arr: &mut [T], mut root_i: usize) {
     let last_i = arr.len() - 1;
+
     loop {
-        let i = 2 * root_i + 1;
-        if i > last_i {
+        let left_i = 2 * root_i + 1;
+        if left_i > last_i {
             break;
         }
-        let j = i + 1;
-        let max_i = if j <= last_i && arr[j] > arr[i] { j } else { i };
+        let right_i = left_i + 1;
+        let max_i = if right_i <= last_i && arr[right_i] > arr[left_i] {
+            right_i
+        } else {
+            left_i
+        };
 
         if arr[max_i] > arr[root_i] {
             arr.swap(root_i, max_i);
