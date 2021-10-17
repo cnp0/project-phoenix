@@ -42,6 +42,7 @@ Maintaining sharp :crossed_swords: and learning rust along the way. This is an o
   - [x] Insertion sort
   - [x] Selection sort
   - [x] Radix sort
+  - [ ] Heapsort
   - [ ] Freivalds' algorithm
   - [ ] Graphs
   - [ ] Recursion
