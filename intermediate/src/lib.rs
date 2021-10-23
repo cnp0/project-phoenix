@@ -45,3 +45,6 @@ pub mod sorting;
 
 #[allow(dead_code)]
 pub mod recursion;
+
+#[allow(dead_code)]
+pub mod dynamic_programming;

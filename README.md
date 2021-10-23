@@ -44,8 +44,8 @@ Maintaining sharp :crossed_swords: and learning rust along the way. This is an o
   - [x] Radix sort
   - [x] Heapsort
   - [ ] Graphs
-  - [ ] Recursion
-  - [ ] Dynamic programming
+  - [x] Recursion
+  - [x] Dynamic programming
   - [ ] Design patterns
   - [ ] Combinatorics and probability
   - [ ] NP, NP-complete, and approximation algorithms
