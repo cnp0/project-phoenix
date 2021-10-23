@@ -42,3 +42,6 @@ pub mod graph;
 
 #[allow(dead_code)]
 pub mod sorting;
+
+#[allow(dead_code)]
+pub mod recursion;
