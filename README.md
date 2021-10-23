@@ -52,7 +52,6 @@ Maintaining sharp :crossed_swords: and learning rust along the way. This is an o
   - [ ] Computer processing
   - [ ] Caches
   - [ ] Processes and threads
-  - [ ] Testing
   - [ ] String searching and manipulations
   - [ ] Tries
   - [ ] Floating point numbers
