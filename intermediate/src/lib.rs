@@ -48,3 +48,6 @@ pub mod recursion;
 
 #[allow(dead_code)]
 pub mod dynamic_programming;
+
+#[allow(dead_code)]
+pub mod design_patterns;

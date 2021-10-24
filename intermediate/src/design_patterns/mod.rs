@@ -1,0 +1,17 @@
+pub mod adapter;
+pub mod command;
+pub mod composite;
+pub mod decorator;
+pub mod delegate;
+pub mod facade;
+pub mod factory;
+pub mod flyweight;
+pub mod iterator;
+pub mod memento;
+pub mod observer;
+pub mod prototype;
+pub mod proxy;
+pub mod singleton;
+pub mod state;
+pub mod strategy;
+pub mod visitor;
