@@ -1,5 +1,5 @@
+// examples of basic variables
 fn variables() {
-    // example variables
     let mut mutable_string = "something".to_owned();
     mutable_string.push_str(&" else");
 

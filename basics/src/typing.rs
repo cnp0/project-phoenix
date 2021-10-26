@@ -1,4 +1,3 @@
-// example custom type
 struct ExampleStruct {
     name: String,
     id: u32,

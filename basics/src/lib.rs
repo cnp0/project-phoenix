@@ -1,11 +1,11 @@
 #[allow(dead_code)]
-pub mod loops;
+pub mod looping;
 
 #[allow(dead_code)]
-pub mod operators;
+pub mod operator;
 
 #[allow(dead_code)]
-pub mod types;
+pub mod typing;
 
 #[allow(dead_code)]
-pub mod variables;
+pub mod variable;

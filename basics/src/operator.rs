@@ -1,3 +1,4 @@
+// examples of basic operators
 fn operators() {
     let and_op = true && true;
     assert_eq!(and_op, true);
