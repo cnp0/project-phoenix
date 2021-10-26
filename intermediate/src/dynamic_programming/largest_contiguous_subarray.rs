@@ -1,4 +1,3 @@
-// largest contiguous subarray
 pub const ARRAY_SIZE: usize = 10;
 
 pub fn calculate_largest_subarray(array: [i32; ARRAY_SIZE]) -> usize {

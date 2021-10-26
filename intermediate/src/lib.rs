@@ -1,53 +1,23 @@
 #[allow(dead_code)]
-pub mod measuring_algorithms;
+pub mod analysis;
 
 #[allow(dead_code)]
-pub mod arrays;
+pub mod operations;
 
 #[allow(dead_code)]
-pub mod vectors;
+pub mod other;
 
 #[allow(dead_code)]
-pub mod pointers;
-
-#[allow(dead_code)]
-pub mod tuples;
-
-#[allow(dead_code)]
-pub mod lists;
-
-#[allow(dead_code)]
-pub mod stack;
-
-#[allow(dead_code)]
-pub mod heap;
-
-#[allow(dead_code)]
-pub mod queue;
-
-#[allow(dead_code)]
-pub mod hash_tables;
-
-#[allow(dead_code)]
-pub mod binary_search;
-
-#[allow(dead_code)]
-pub mod bitwise_ops;
-
-#[allow(dead_code)]
-pub mod tree;
-
-#[allow(dead_code)]
-pub mod graph;
+pub mod searching;
 
 #[allow(dead_code)]
 pub mod sorting;
-
-#[allow(dead_code)]
-pub mod recursion;
 
 #[allow(dead_code)]
 pub mod dynamic_programming;
 
 #[allow(dead_code)]
 pub mod design_patterns;
+
+#[allow(dead_code)]
+pub mod structures;

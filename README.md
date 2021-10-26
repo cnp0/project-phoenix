@@ -59,4 +59,4 @@ Maintaining sharp :crossed_swords: and learning rust along the way. This is an o
   - [ ] Endianness
   - [ ] Networking
   - [ ] Freivalds' algorithm
-  - [ ] Refactor `project-phoenix`
+  - [x] Refactor `project-phoenix`
