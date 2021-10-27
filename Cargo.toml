@@ -1,2 +1,2 @@
 [workspace]
-members = ["basics", "intermediate"]
+members = ["basics", "intermediate", "leet"]
