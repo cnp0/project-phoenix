@@ -19,7 +19,6 @@
 struct Solution;
 
 impl Solution {
-    // Given 1 <= n <= 1000, return a vector of n-elements that sum to 0.
     pub fn sum_zero(n: i32) -> Vec<i32> {
         let mut vec: Vec<i32> = (0..n).collect();
         let sum: i32 = vec.iter().sum();
