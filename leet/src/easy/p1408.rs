@@ -33,7 +33,16 @@ impl Solution {
     pub fn string_matching(words: Vec<String>) -> Vec<String> {
         let mut result = Vec::new();
 
+        if words.len() > 100 {
+            return result;
+        }
+
         for (i, w_i) in words.iter().enumerate() {
+            // TODO: must be pre-check
+            // if w_i.len() > 30 {
+            //     return Vec::new();
+            // }
+
             for (j, w_j) in words.iter().enumerate() {
                 if i != j {
                     if w_j.contains(w_i) {
