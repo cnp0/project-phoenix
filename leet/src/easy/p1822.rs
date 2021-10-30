@@ -33,14 +33,19 @@
 struct Solution;
 
 impl Solution {
+    // returns 0 for invalid inputs
     pub fn array_sign(nums: Vec<i32>) -> i32 {
-        if nums.contains(&0) {
+        if nums.len() < 1 || nums.len() > 1000 || nums.contains(&0) {
             return 0;
         }
 
         let mut negatives = Vec::new();
 
         for n in nums.iter() {
+            if *n < -100 || *n > 100 {
+                return 0;
+            }
+
             if *n < 0 {
                 negatives.push(*n);
             }
