@@ -26,24 +26,24 @@
 //     -109 <= nums[i] <= 109
 //     -109 <= target <= 109
 //     Only one valid answer exists.
+use std::collections::HashMap;
+
 struct Solution;
 
 impl Solution {
     pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
-        let len = nums.len();
-
         // leetcode being leetcode
         // if len < 2 || len > 204 {
         //     return Vec::new();
         // }
 
-        for i in 0..len {
-            for j in 0..len {
-                let sum = nums[i] + nums[j];
-                if i != j && sum == target {
-                    return vec![i as i32, j as i32];
-                }
+        let mut lookup = HashMap::new();
+        for (i, n) in nums.iter().enumerate() {
+            let diff = target - n;
+            if lookup.contains_key(&diff) {
+                return vec![*lookup.get(&diff).unwrap() as i32, i as i32];
             }
+            lookup.insert(n, i);
         }
 
         return Vec::new();
