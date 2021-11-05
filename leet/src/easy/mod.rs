@@ -13,5 +13,6 @@ pub mod p1408;
 pub mod p1450;
 pub mod p1480;
 pub mod p1822;
+pub mod p1859;
 pub mod p1925;
 pub mod p2000;
