@@ -20,15 +20,20 @@ struct Solution;
 impl Solution {
     // returns numerically ascending sorted vec for invalid inputs
     pub fn lexical_order(n: i32) -> Vec<i32> {
-        let range: Vec<i32> = (1..n + 1).collect();
-        if n < 1 || n > 5 * 104 {
-            return range;
+        let mut result: Vec<i32> = vec![1];
+        for _i in 1..n {
+            let mut i = *result.last().unwrap();
+
+            if i * 10 <= n {
+                result.push(i * 10);
+            } else {
+                while i + 1 > n || (i + 1) % 10 == 0 {
+                    i /= 10;
+                }
+
+                result.push(i + 1);
+            }
         }
-
-        let mut strings: Vec<String> = range.iter().map(|x| x.to_string()).collect();
-        strings.sort();
-
-        let result: Vec<i32> = strings.iter().map(|x| x.parse().unwrap()).collect();
 
         return result;
     }
