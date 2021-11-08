@@ -7,6 +7,7 @@ pub mod p0349;
 pub mod p0414;
 pub mod p0459;
 pub mod p0506;
+pub mod p1184;
 pub mod p1304;
 pub mod p1370;
 pub mod p1408;
