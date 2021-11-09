@@ -50,8 +50,11 @@ impl Solution {
 
         for (i, c) in s_bytes.iter().enumerate() {
             if i % 2 != 0 {
+                // index position of previous character
                 let j = *lookup.get(&(s_bytes[i - 1] as char)).unwrap();
-                new_s.push(alphabet[(j + *c as usize) % 25]);
+                // current character as integer
+                let k = (*c as char).to_digit(10).unwrap();
+                new_s.push(alphabet[(j + k as usize) % 26]);
             } else {
                 new_s.push(*c as char);
             }
@@ -63,13 +66,13 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    // use super::*;
+    use super::*;
 
     #[test]
     fn test_solution() {
-        // let s = "a1c1e1".to_string();
-        // let result = Solution::replace_digits(s);
+        let s = "a1c1e1".to_string();
+        let result = Solution::replace_digits(s);
 
-        // assert_eq!(result, "abcdef".to_string());
+        assert_eq!(result, "abcdef".to_string());
     }
 }
