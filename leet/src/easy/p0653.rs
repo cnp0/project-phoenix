@@ -43,7 +43,10 @@
 //     -104 <= Node.val <= 104
 //     root is guaranteed to be a valid binary search tree.
 //     -105 <= k <= 105
+
+// TODO: properly use std::rc::Rc and follow idomatic ownership
 use std::cell::RefCell;
+use std::collections::HashSet;
 use std::rc::Rc;
 
 // Definition for a binary tree node.
@@ -68,9 +71,28 @@ impl TreeNode {
 struct Solution;
 
 impl Solution {
-    pub fn find_target(_root: Option<Rc<RefCell<TreeNode>>>, _k: i32) -> bool {
+    pub fn find_target(root: Option<Rc<RefCell<TreeNode>>>, k: i32) -> bool {
+        let mut vals = HashSet::new();
+
+        return search(&root, &mut vals, &k);
+    }
+}
+
+fn search(node: &Option<Rc<RefCell<TreeNode>>>, vals: &mut HashSet<i32>, k: &i32) -> bool {
+    if node.is_none() {
         return false;
     }
+
+    // check if delta between k and node.val exists in the set of all found
+    let d = *k - node.as_ref().unwrap().borrow().val;
+    if vals.contains(&d) {
+        return true;
+    }
+
+    vals.insert(d);
+
+    return search(&node.as_ref().unwrap().borrow().left, vals, &k)
+        || search(&node.as_ref().unwrap().borrow().right, vals, &k);
 }
 
 #[cfg(test)]
