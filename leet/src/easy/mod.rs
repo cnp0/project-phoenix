@@ -26,3 +26,4 @@ pub mod p1859;
 pub mod p1925;
 pub mod p2000;
 pub mod p2006;
+pub mod p2011;
